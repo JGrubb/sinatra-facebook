@@ -2,8 +2,6 @@ require 'rubygems'
 require 'net/http'
 require 'json'
 require 'sinatra'
-#require 'twitter'
-require 'haml'
 require 'redcarpet'
 
 def dat_render(text)
