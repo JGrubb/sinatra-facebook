@@ -4,7 +4,7 @@ require 'json'
 require 'sinatra'
 require 'redcarpet'
 require 'active_record'
-#require 'sinatra/reloader'
+require 'sinatra/reloader'
 load 'models.rb'
 load 'db/config.rb'
 
@@ -21,9 +21,9 @@ def dat_render(text)
   markdown.render(text)
 end
 
-
 get '/' do
-  erb :index
+  @bands = Band.order("name ASC")
+  erb :all
 end
 
 get '/bands/new' do
@@ -38,11 +38,6 @@ post '/bands/new' do
   else
     "still problem"
   end
-end
-
-get '/bands' do
-  @bands = Band.order("name ASC")
-  erb :all
 end
 
 get '/bands/:id' do
