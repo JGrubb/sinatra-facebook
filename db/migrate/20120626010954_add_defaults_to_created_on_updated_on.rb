@@ -8,6 +8,9 @@ class AddDefaultsToCreatedOnUpdatedOn < ActiveRecord::Migration
   end
 
   def down
-    
+    remove column :bands, :created_at
+    remove column :bands, :updated_at
+    add_column :bands, :created_on
+    add_column :bands, :updated_on
   end
 end

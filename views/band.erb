@@ -1,15 +1,18 @@
-<h1><%= dat_render(@parsed['name']) %></h1>
+<div class="row">
+  <h2 class="span12"><%= dat_render(@parsed['name']) %></h1>
 
-<p><%= dat_render(@parsed['bio']) %></p>
+  <div class="span8"><%= dat_render(@parsed['bio']) %></div>
 
-<div class="tweets">
-  <% @tweets.each do |tweet| %>
-  <div>
-    <p><%= tweet['text'] %></p>
+  <div class="tweets span4">
+    <h3><a href="http://www.twitter.com/<%= @band.twitter_user %>">Twitter</a></h3>
+    <% @tweets.each do |tweet| %>
+    <div>
+      <p><%= dat_render(tweet['text']) %></p>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 
-<div>
-  <img src="<%= @parsed['cover']['source']%>">
+  <div class="span4">
+    <img src="<%= @parsed['cover']['source']%>">
+  </div>
 </div>
