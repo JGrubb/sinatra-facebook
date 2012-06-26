@@ -36,7 +36,7 @@ post '/bands/new' do
   if @band.save!
     redirect "/bands/#{@band.id}"
   else
-    "still problem"
+    "You either forgot to enter a field or you did a band that's been done already."
   end
 end
 
