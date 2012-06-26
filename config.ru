@@ -1,3 +1,3 @@
-require './facebook.rb'
+require './app.rb'
 
 run Sinatra::Application
