@@ -50,6 +50,11 @@ get '/bands/:id' do
   erb :band
 end
 
+get '/bands/edit/:id' do
+  @band = Band.find(params[:id])
+  erb :edit
+end
+
 after do
   ActiveRecord::Base.clear_active_connections!
 end
