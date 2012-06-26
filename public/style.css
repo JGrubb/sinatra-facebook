@@ -5,3 +5,20 @@ h1, h2 {
 #header {
   padding: 1em 0;
 }
+
+#nav {
+  padding: 1em 0;
+}
+
+#nav li {
+  list-style: none;
+  float: left;
+  margin-right: 1em;
+}
+
+#nav li a {
+  background: #eee;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+  padding: 0.2em 0.5em;
+}
