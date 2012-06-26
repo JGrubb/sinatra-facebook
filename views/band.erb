@@ -2,6 +2,14 @@
 
 <p><%= dat_render(@parsed['bio']) %></p>
 
+<div class="tweets">
+  <% @tweets.each do |tweet| %>
+  <div>
+    <p><%= tweet['text'] %></p>
+  </div>
+  <% end %>
+</div>
+
 <div>
   <img src="<%= @parsed['cover']['source']%>">
 </div>

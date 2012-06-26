@@ -3,6 +3,9 @@ require 'net/http'
 require 'json'
 require 'sinatra'
 require 'redcarpet'
+require 'active_record'
+
+load 'models.rb'
 
 def dat_render(text)
   options = {
@@ -20,7 +23,10 @@ get '/' do
 end
 
 get '/:band' do
-  fb = Net::HTTP.get_response("graph.facebook.com", "/#{params[:band]}")
+  fb  = Net::HTTP.get_response("graph.facebook.com", "/#{params[:band]}")
+  t   = Net::HTTP.get_response("api.twitter.com", "/1/statuses/user_timeline.json?screen_name=#{params[:band]}&count=3")
   @parsed = JSON.parse(fb.body)
+  @tweets = JSON.parse(t.body)
+  puts @tweets
   erb :band
 end
