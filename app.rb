@@ -4,11 +4,11 @@ require 'json'
 require 'sinatra'
 require 'redcarpet'
 require 'active_record'
-require 'sinatra/reloader'
+#require 'sinatra/reloader'
 load 'models.rb'
 load 'db/config.rb'
 
-set :logging, :true
+#set :logging, :true
 
 def dat_render(text)
   options = {
