@@ -1,17 +1,17 @@
 <div id="edit-band">
   <p>Please feel free to add a band, as long as you don't screw up one of these fields.  I haven't built the edit part yet.  DON'T BLOW IT!!</p>
-  <form action="/bands/new" method="post">
+  <form action="/bands/<%= @band.id %>/edit" method="post">
     <div class="field">
       <label for="band_name">Band Name</label>
       <input type="text" name="band[name]" value="<%= @band.name %>" />
     </div>
     <div class="field">
-      <label for="twitter_user">Twitter Username</label>
+      <label for="twitter_user">The Band's Twitter Username</label>
       <input type="text" name="band[twitter_user]" value="<%= @band.twitter_user %>" />
     </div>  
     <div class="field">
-      <label for="facebook_user">Facebook Username</label>
-      <input type="text" name="band[fb_user]" value="<% @band.fb_user %>" />
+      <label for="facebook_user">The Band's Facebook Username</label>
+      <input type="text" name="band[fb_user]" value="<%= @band.fb_user %>" />
     </div>
     <div class="field submit">
       <input type="submit" value="kick it &rarr;">

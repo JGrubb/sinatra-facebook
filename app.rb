@@ -50,7 +50,7 @@ get '/bands/:id' do
   erb :band
 end
 
-get '/bands/edit/:id' do
+get '/bands/:id/edit' do
   @band = Band.find(params[:id])
   erb :edit
 end
