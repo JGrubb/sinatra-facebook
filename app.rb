@@ -32,8 +32,8 @@ get '/bands/new' do
 end
 
 post '/bands/new' do
-  @band = Band.new(params[:post])
-  if @band.save
+  @band = Band.new(params[:band])
+  if @band.save!
     redirect "/bands/#{@band.id}"
   else
     "still problem"
@@ -41,7 +41,7 @@ post '/bands/new' do
 end
 
 get '/bands' do
-  @bands = Band.all
+  @bands = Band.order("name ASC")
   erb :all
 end
 

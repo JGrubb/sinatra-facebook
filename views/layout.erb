@@ -2,11 +2,15 @@
 <html>
   <head>
     <link rel="stylesheet" href="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <script src="//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
     <div class="container">
-    <%= yield %>
+      <div id="header" class="row">
+        <h1 class="row"><a href="/">The State of Bluegrass</a></h1>
+      </div>
+      <%= yield %>
     </div>
   </body>
 </html>
