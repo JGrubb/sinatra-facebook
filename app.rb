@@ -55,6 +55,15 @@ get '/bands/:id/edit' do
   erb :edit
 end
 
+post '/bands/:id/edit' do
+  @band = Band.find(params[:id])
+  if @band.update_attributes(params[:band])
+    redirect "/bands/#{@band.id}"
+  else
+    "You suck"
+  end
+end
+
 after do
   ActiveRecord::Base.clear_active_connections!
 end
