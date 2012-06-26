@@ -1,4 +1,12 @@
-#require 'activerecord'
+#ActiveRecord::Base.establish_connection(
+#  :adapter  => "mysql",
+#  :database => "sinatra_test",
+#  :username => "root",
+#  :password => "root",
+#  :host     => "localhost"
+#)
+
+require 'activerecord'
 require 'uri'
 
 db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
