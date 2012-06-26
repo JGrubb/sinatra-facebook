@@ -1,2 +1,2 @@
 require 'sinatra/activerecord/rake'
-require './facebook'
+require './app'
