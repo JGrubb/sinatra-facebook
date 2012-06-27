@@ -22,3 +22,8 @@ h1, h2 {
   border: 1px solid #aaa;
   padding: 0.2em 0.5em;
 }
+
+#index .band {
+  font-size: 1.2em;
+  padding: 0.25em 0;
+}

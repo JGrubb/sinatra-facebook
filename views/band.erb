@@ -1,7 +1,7 @@
 <div class="row">
-  <h2 class="span12"><%= dat_render(@parsed['name']) %></h1>
+  <h2 class="span12"><%= dat_render(@band.name) %></h1>
 
-  <div class="span8"><%= dat_render(@parsed['bio']) %></div>
+  <div class="span8"><%= dat_render(@band.bio) %></div>
 
   <div class="tweets span4">
     <h3><a href="http://www.twitter.com/<%= @band.twitter_user %>">Twitter</a></h3>

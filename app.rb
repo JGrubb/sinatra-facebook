@@ -33,6 +33,9 @@ end
 
 post '/bands/new' do
   @band = Band.new(params[:band])
+  fb  = Net::HTTP.get_response("graph.facebook.com", "/#{@band.fb_user}")
+  @parsed = JSON.parse(fb.body)
+  @band['bio'] = @parsed['bio']
   if @band.save!
     redirect "/bands/#{@band.id}"
   else
@@ -42,9 +45,9 @@ end
 
 get '/bands/:id' do
   @band = Band.find(params[:id])
-  fb  = Net::HTTP.get_response("graph.facebook.com", "/#{@band.fb_user}")
+  #fb  = Net::HTTP.get_response("graph.facebook.com", "/#{@band.fb_user}")
   t   = Net::HTTP.get_response("api.twitter.com", "/1/statuses/user_timeline.json?screen_name=#{@band.twitter_user}&count=3")
-  @parsed = JSON.parse(fb.body)
+  #@parsed = JSON.parse(fb.body)
   @tweets = JSON.parse(t.body)
   #puts @tweets
   erb :band
@@ -61,6 +64,15 @@ post '/bands/:id/edit' do
     redirect "/bands/#{@band.id}"
   else
     "You suck"
+  end
+end
+
+before '/bands/:id' do |id|
+  @band = Band.find(params[id])
+  unless @band.bio
+    fb  = Net::HTTP.get_response("graph.facebook.com", "/#{@band.fb_user}")
+    parsed = JSON.parse(fb.body)
+    @band.update_attributes(:bio => parsed['bio'])
   end
 end
 
