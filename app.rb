@@ -46,7 +46,7 @@ get '/bands/:id' do
   t   = Net::HTTP.get_response("api.twitter.com", "/1/statuses/user_timeline.json?screen_name=#{@band.twitter_user}&count=3")
   @parsed = JSON.parse(fb.body)
   @tweets = JSON.parse(t.body)
-  #puts @tweets
+  #puts @parsed
   erb :band
 end
 
